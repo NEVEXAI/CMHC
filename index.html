@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123c33">
+<meta name="description" content="QRAOS Development Command Center">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>QRAOS™ Development Command Center v4</title>
+<link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+<header class="topbar">
+ <div class="brand"><h1>QRAOS™</h1><p>Development Command Center</p></div>
+ <div class="top-actions">
+  <span id="saveState" class="status-chip">Ready</span>
+  <button id="saveBtn" class="btn primary">Save</button>
+  <button id="exportBtn" class="btn">Export</button>
+  <label class="btn file-btn">Import<input id="importFile" type="file" accept=".json"></label>
+ </div>
+</header>
+<div class="app-shell">
+<aside class="sidebar">
+ <div class="project-picker">
+  <label>Current project</label><select id="projectSelect"></select>
+  <div class="side-actions"><button id="newBtn" class="btn primary">New</button><button id="duplicateBtn" class="btn">Duplicate</button><button id="deleteBtn" class="btn danger">Delete</button></div>
+ </div>
+ <nav id="nav"></nav>
+</aside>
+<main id="main"></main>
+</div>
+<script src="./assets/app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(console.error));
+}
+</script>
+</body>
+</html>
